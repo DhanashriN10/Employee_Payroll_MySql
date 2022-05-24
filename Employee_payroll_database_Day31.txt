@@ -83,4 +83,25 @@ UC4:Retrieving all the employee payroll data
 +----+-------+---------+------------+
 3 rows in set (1.12 sec)
 
+*********************************************************
+UC5:Ability to retrieve salary data for a particular employee as well as 
+all employees who have joined in a particular data range from the
+payroll service database
+*********************************************************
 
+mysql> SELECT salary FROM employee_payroll WHERE name = 'John';
++---------+
+| salary  |
++---------+
+| 1000000 |
++---------+
+1 row in set (0.19 sec)
+
+mysql> SELECT * FROM employee_payroll WHERE start BETWEEN CAST('2020-01-01' AS DATE) AND DATE(NOW());
++----+-------+--------+------------+
+| id | name  | salary | start      |
++----+-------+--------+------------+
+|  2 | soham |  40000 | 2020-05-22 |
+|  3 | Raju  |  15000 | 2021-05-20 |
++----+-------+--------+------------+
+2 rows in set (0.78 sec)
